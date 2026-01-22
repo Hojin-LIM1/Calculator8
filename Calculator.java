@@ -8,7 +8,6 @@ public class Calculator {
     // 캡슐화
     private final ArrayList<Integer> resultCollection = new ArrayList<>();
 
-
     // 기능
     //[1] method1 더하기
     public int sum(int num1, int num2) {
@@ -43,8 +42,6 @@ public class Calculator {
             return result;
         }
 
-
-
     // [5]method5 연산결과 삭제
     public void removeResult() {
         resultCollection.remove(0);
@@ -52,7 +49,6 @@ public class Calculator {
 
     //getter [array 캡슐화에 따른 array get으로 불러오기] /
     public ArrayList<Integer> getResultCollection(){return resultCollection; }
-
 
 
     //setter [변수 수정] / private 캡슐화로 해당클래스에 작성 -> 외부에서 변수를 수정할 경우가 없어서 setter는 삭제
