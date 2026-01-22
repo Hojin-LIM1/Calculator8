@@ -11,22 +11,22 @@ public class App {
 
         while (!workContinue.equals("exit")) {
 
-            // 값 입력받기1(첫번째 숫자 = first)
+            // 값 입력받기1(첫번째 숫자 = num1)(피드백 반영)
             System.out.println("연산할 첫번째 숫자를 입력해주세요");
-            int first = scanner.nextInt();
+            int num1 = scanner.nextInt();
 
-            // 양의 정수인지 확인(피드백 추가) - first
-            if( first <0 ) {
+            // 양의 정수인지 확인(피드백 추가)
+            if( num1 <0 ) {
                 System.out.println("0을 포함한 양의 정수를 입력해주세요");
                 continue;
             }
 
-            // 값 입력받기2(두번째 숫자 = second)
+            // 값 입력받기2(두번째 숫자 = num2)(피드백 반영)
             System.out.println("연산할 두번째 숫자를 입력해주세요");
-            int second = scanner.nextInt();
+            int num2 = scanner.nextInt();
 
-            // 양의 정수인지 확인(피드백 추가) - second
-            if( second <0 ) {
+            // 양의 정수인지 확인(피드백 추가)
+            if( num2 <0 ) {
                 System.out.println("0을 포함한 양의 정수를 입력해주세요");
                 continue;
             }
@@ -37,23 +37,23 @@ public class App {
 
             switch (cal) {
                 case '+':
-                    System.out.println(first + second);
+                    System.out.println(num1 + num2);
                     break;
 
                 case '-':
-                    System.out.println(first - second);
+                    System.out.println(num1 - num2);
                     break;
 
                 case '*':
-                    System.out.println(first * second);
+                    System.out.println(num1 * num2);
                     break;
 
                 case '/':
-                    if (second == 0) {
+                    if (num2 == 0) {
                         System.out.println("0으로 나눌 수 없습니다.");
                         continue; // 기존 return 0; 에서 재입력으로 바꿈(피드백 추가
                     }
-                    System.out.println(first / second);
+                    System.out.println(num1 / num2);
                     break;
 
                 default:
