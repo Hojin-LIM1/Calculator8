@@ -2,7 +2,8 @@ package Calculator8;
 
 import java.util.Scanner;
 import java.util.ArrayList; // Calculator 미사용으로 ArrayList Import <- enum class에 작성하기 매우 어렵..
-
+import java.util.List;               // 값 비교를 위해 추가
+import java.util.stream.Collectors;  // 값 비교를 위해 추가
 //제네릭 선언
 public class ArithmeticCalculator <T>  {
     // 결과값은 double로 처리해야되서 double을 추가해주고
@@ -79,6 +80,11 @@ public class ArithmeticCalculator <T>  {
 
             }
 
+            // 비교값 연산결과 구간 추가
+            System.out.println("연산결과와 비교할 값을 입력하십시요(입력값보다 큰 결과값을 출력합니다.)");
+            double compareValue = scanner.nextDouble();
+            System.out.println("비교값 결과 :" + compareNumber(compareValue));
+
             System.out.println("연산을 종료하려면 exit를 작성하십시요 / 계속 진행하려면 아무키나 누르시오");
             workContinue = scanner.next();
         }
@@ -91,6 +97,13 @@ public class ArithmeticCalculator <T>  {
         if (!resultCollection.isEmpty()) {
             resultCollection.remove(0);
         }
+    }
+
+    // 값 비교 메서드 추가 , 제네릭 적용으로 double 추가
+    public static List<Double> compareNumber(double compareValue) {
+        return resultCollection.stream()
+                .filter(result2 -> result2 > compareValue)  //람다식으로 처리
+                .collect(Collectors.toList());
     }
 
 }
