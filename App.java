@@ -7,6 +7,8 @@ public class App {
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
+        Calculator calculator = new Calculator();
+
         String workContinue = "";
 
         while (!workContinue.equals("exit")) {
@@ -35,30 +37,38 @@ public class App {
             System.out.println("연산할 부호를 입력해주세요(+,-,*,/)");
             char cal = scanner.next().charAt(0);
 
+
             switch (cal) {
                 case '+':
-                    System.out.println(num1 + num2);
+                    System.out.println(calculator.sum(num1, num2));
                     break;
 
                 case '-':
-                    System.out.println(num1 - num2);
+                    System.out.println(calculator.sub(num1, num2));
                     break;
 
                 case '*':
-                    System.out.println(num1 * num2);
+                    System.out.println(calculator.mul(num1, num2));
                     break;
 
                 case '/':
-                    if (num2 == 0) {
-                        System.out.println("0으로 나눌 수 없습니다.");
-                        continue; // 기존 return 0; 에서 재입력으로 바꿈(피드백 추가
-                    }
-                    System.out.println(num1 / num2);
+                    System.out.println(calculator.div(num1, num2));
                     break;
 
                 default:
                     System.out.println("지원하지 않는 연산자 입니다.");
                     continue;
+
+            }
+
+            System.out.println("계산 기록 :" + calculator.getResultCollection());
+
+            System.out.println("가장 오래된 기록을 삭제하시겠습니까? Y(삭제) or N(Press Any key)");
+            String remove  = scanner.next();
+
+            if (remove.equals("Y")) {
+                calculator.removeResult();
+                System.out.println("수정후 기록 :" + calculator.getResultCollection());
 
             }
 
